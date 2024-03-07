@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float movementSpeed = 5.0f;
-    private float sensitivity = 1;
+    //private float sensitivity = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -24,27 +24,27 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            transform.position = transform.position + new Vector3(0,0,movementSpeed*Time.deltaTime);
+            transform.Translate(0, 0, movementSpeed*Time.deltaTime);
         }
         if (Input.GetKey("s"))
         {
-            transform.position = transform.position + new Vector3(0,0,-movementSpeed*Time.deltaTime);
+            transform.Translate(0, 0, -movementSpeed * Time.deltaTime);
         }
         if (Input.GetKey("a"))
         {
-            transform.position = transform.position + new Vector3(-movementSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(-movementSpeed * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey("d"))
         {
-            transform.position = transform.position + new Vector3(movementSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(movementSpeed * Time.deltaTime, 0, 0);
         }
     }
 
     void cameraMovement()
     {
-        if (Input.GetKey("r"))
-        {
-            Debug.Log("Se presiono la tecla de rotacion");
-        }
+        float MouseX = Input.GetAxis("Mouse X");
+        Debug.Log("Se presiono la tecla de rotacion");
+        //transform.rotation = Quaternion.AngleAxis(MouseX, new Vector3(0,1,0));
+        transform.Rotate(new Vector3(0f, MouseX, 0f));
     }
 }
