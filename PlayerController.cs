@@ -43,8 +43,6 @@ public class PlayerController : MonoBehaviour
     void cameraMovement()
     {
         float MouseX = Input.GetAxis("Mouse X");
-        Debug.Log("Se presiono la tecla de rotacion");
-        //transform.rotation = Quaternion.AngleAxis(MouseX, new Vector3(0,1,0));
         transform.Rotate(new Vector3(0f, MouseX, 0f));
     }
 }
